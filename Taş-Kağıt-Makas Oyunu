@@ -1,0 +1,38 @@
+function tasKagitMakas(tercih) {
+
+  let bilgisayar = Math.floor(Math.random() * 3);
+
+  if (bilgisayar === 0) {
+    bilgisayar = "taş";
+  } 
+  else if (bilgisayar === 1) {
+    bilgisayar = "kağıt";
+  } 
+  else {
+    bilgisayar = "makas";
+  }
+
+ 
+  if (tercih === bilgisayar) {
+    return "Senin seçimin: " + tercih + 
+           ". Bilgisayarın seçimi: " + bilgisayar + 
+           ". Beraberlik!";
+  }
+
+  
+  else if (
+    (tercih === "taş" && bilgisayar === "makas") ||
+    (tercih === "kağıt" && bilgisayar === "taş") ||
+    (tercih === "makas" && bilgisayar === "kağıt")
+  ) {
+    return "Senin seçimin: " + tercih + 
+           ". Bilgisayarın seçimi: " + bilgisayar + 
+           ". Kazandın!";
+  }
+
+  else {
+    return "Senin seçimin: " + tercih + 
+           ". Bilgisayarın seçimi: " + bilgisayar + 
+           ". Kaybettin!";
+  }
+}
