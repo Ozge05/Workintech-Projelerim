@@ -1,3 +1,15 @@
+ElectroCar'ın elektrikli araç lansmanı için 11 aracın farklı kurallara göre dağıtılacağı bir çekiliş sistemi geliştireceğiz. Bu sistem adil, şeffaf ve tekrar edilebilir sonuçlar üretecek.
+
+Teknik Gereksinimler
+'lottery' adında bir JavaScript fonksiyonu geliştirmen gerekiyor
+Fonksiyon, başvuranların isimlerini içeren bir array alacak
+Çıktı olarak 11 kazananın isimlerini içeren bir array dönecek
+Toplam 11 adet elektrikli araç hediye edilecek
+İlk 5 araç başvuru yapan ilk 5 kişiye
+Sonraki 5 araç, başvuru sırasına göre sıradaki her 10. kisiye (10., 20., 30., 40., 50. kişiler)
+Son araç ise rastgele bir şanslı kişiye verilecek
+
+
 function lottery(liste) {
     const kazananIlkBes = liste.slice(0, 5);
 
