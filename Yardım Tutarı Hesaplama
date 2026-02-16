@@ -1,0 +1,27 @@
+Yardım Tutarı Hesaplama
+Proje Tanımı
+MediaTV'nin canlı yayın yardım kampanyası için, bağışçı isimlerindeki belirli harfleri sayarak bağış tutarını hesaplayan bir modül geliştireceğiz. Ahmet Bey, bağışçıların isimlerinde kendi adındaki harflerden (a, h, m, e, t) kaç tane geçiyorsa, bunun 1000 katı kadar TL bağışta bulunacak.
+
+Teknik Gereksinimler
+Bunu hesaplayacak fonksiyonun adı tutarHesapla olsun.
+Bu fonksiyon yardım yapanların isimlerini içerin bir array'i parametre olarak alsın.
+Çıktı olarak hesaplanan bağış tutarını dönecek
+Büyük/küçük harf duyarlılığına dikkat edilmeli
+Gelen listedeki isimlerde Ahmet' ismindeki harflerden toplam kaç tane olduğunu hesaplayıp, 1000 katını geri dönsün.
+/////////////////////////////////////////////////////////////////////////////
+
+function tutarHesapla(isimler) {
+  let tekrar = 0;
+  const harfler = ["a", "h", "m", "e", "t"];
+
+  for (let i = 0; i < isimler.length; i++) {
+    let isim = isimler[i].toLowerCase(); // ismi küçük harfe çevir
+    for (let k = 0; k < isim.length; k++) {
+      if (harfler.includes(isim[k])) {
+        tekrar++;
+      }
+    }
+  }
+
+  return tekrar * 1000;
+}
