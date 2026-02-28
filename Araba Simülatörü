@@ -1,0 +1,47 @@
+Gün Projesi: Araba Simülatörü
+/////////////////////////////////////////
+Proje Tanımı
+Volvo firması web sitesinde bir araba simülatörü geliştirmenizi istiyor. Bu simülatör sayesinde kullanıcılar sanal bir araba oluşturup, bu arabayla çeşitli işlemler (yakıt alma, kullanma gibi) yapabilecekler.
+
+
+function carSimulator(marka, model, kilometre, fiyat) {
+  const car = {
+    marka: marka,
+    model: model,
+    kilometre: kilometre,
+    fiyat: fiyat,
+    depo: 50, // yeni araba deposu yarı dolu
+
+    // Arabanın fiyatını gösteren metod
+    getPrice: function () {
+      console.log(`Arabanın fiyatı: ${this.fiyat} TL`);
+    },
+
+    // Depoya yakıt ekleme
+    refuel: function (yakitMiktari) {
+      this.depo += yakitMiktari;
+      if (this.depo > 100) this.depo = 100; // depo 100'ü geçemez
+      return `Depo %${this.depo} doludur.`;
+    },
+
+    // Araba sürme metodu
+    drive: function (km) {
+      this.kilometre += km;
+
+      // Her 100 km için yakıt ve fiyat düşüşü
+      const yuzlukKm = Math.floor(km / 100);
+      this.depo -= 5 * yuzlukKm;
+      if (this.depo < 0) this.depo = 0;
+
+      this.fiyat -= 50 * yuzlukKm;
+      if (this.fiyat < 0) this.fiyat = 0;
+
+      return `Araba ${km} km yol yaptı. Güncel kilometre: ${this.kilometre} km, Güncel depo: ${this.depo}%, Güncel fiyat: ${this.fiyat} TL`;
+    },
+  };
+
+  return car;
+}
+
+/* Bu satırdan sonraki satırları silmeyin! */
+module.exports = carSimulator;
